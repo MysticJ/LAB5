@@ -50,18 +50,27 @@ int Sum(int sum){
 
 void showOfOne(string name){
 	// information of only one player winning
+	cout<<"Oh yeeeeesssss! "<<name<<" has won with his luck over the others!"<<endl;
 }
 
 void showOfTwo(string name1, string name2){
 	// information of two players winning
+	cout<<"What a coincident!!! "<<name1<<" and "<<name2<<" has tossed the same number!"<<endl;
 }
 
 void showOfThree(){
 	// information of tie
+	cout<<"No way!!! How can you get the same number all by randomly tossing the dices?!"<<endl;
 }
 
 int main() {
 	// description;
+	cout<<"In this game, three players will be Minion Mel, Carl and Tim!"<<endl;
+	cout<<"You are going to have a game of tossing dices."<<endl;
+	cout<<"Each of you will randomly toss 3 dices and add up the three numbers of the dices."<<endl;
+	cout<<"Specially, if you have tossed one or more than one \"6\", you can dice one more time!"<<endl;
+	cout<<"The numbers of three dices in the new toss will be added to your sum of last toss."<<endl;
+	cout<<"If anyone has the largest sum, he will be awarded with one day off and lots of bananas!"<<endl;
 	// basic function
 	int a,b,c;
 	int sum1=0;
@@ -93,47 +102,47 @@ int main() {
 	if ((sum1!=sum2)&&(sum2!=sum3)&&(sum3!=sum1)){
 		if (sum1>sum2){
 			if (sum1>sum3){
-				cout<<"Player1 win"<<endl;// player1 wins
+				showOfOne("Mel");// player1 wins
 			}
 			else { // sum1<sum3
-				cout<<"Player3 win"<<endl;// player3 wins
+				showOfOne("Tim");// player3 wins
 			}
 		}
 		else { // sum1<sum2
 			if (sum2>sum3) {
-				cout<<"Player2 win"<<endl;// player2 wins
+				showOfOne("Carl");// player2 wins
 			}
 			else { // sum2<sum3
-				cout<<"Player3 win"<<endl;// player3 wins
+				showOfOne("Tim")// player3 wins
 			}
 		}
 	}
 	else if ((sum1==sum2)&&(sum1!=sum3)){
 		if (sum1>sum3){
-			cout<<"Player1&2 win"<<endl;// player1 and player2 wins
+			showOfTwo("Mel", "Carl");// player1 and player2 wins
 		}
 		else { // sum1=sum2<sum3
-			cout<<"Player3 win"<<endl;// player3 wins
+			showOfOne("Tim");// player3 wins
 		}
 	}
 	else if ((sum1==sum3)&&(sum1!=sum2)){
 		if (sum1>sum2){
-			cout<<"Player1&3 win"<<endl;// player1 and player3 wins
+			showOfTwo("Mel", "Tim");// player1 and player3 wins
 		}
 		else { // sum1=sum3<sum2
-			cout<<"Player2 win"<<endl;// player2 wins
+			showOfOne("Carl");// player2 wins
 		}
 	}
 	else if ((sum2==sum3)&&(sum2!=sum1)){
 		if (sum2>sum1){
-			cout<<"Player2&3 win"<<endl;// player2 and player3 wins
+			showOfTwo(Tim", "Carl");// player2 and player3 wins
 		}
 		else { // sum2=sum3<sum1
-			cout<<"Player1 win"<<endl;// player1 wins
+			showOfOne("Mel");// player1 wins
 		}
 	}
 	else { // sum1=sum2=sum3
-		cout<<"No one win"<<endl;// a tie, no one wins
+		showOfThree();// a tie, no one wins
 	}
 
 	return 0;
